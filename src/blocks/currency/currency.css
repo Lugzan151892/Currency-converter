@@ -1,0 +1,13 @@
+.currency {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 800px;
+    height: 100px;
+    background-color: #1b1b32;
+    border: 1px solid red;
+    border-radius: 50px;
+    color: white;
+}

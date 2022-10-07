@@ -1,0 +1,23 @@
+.converter {
+    margin: 0 auto;
+    width: 800px;
+    height: 200px;
+    background-color: #1b1b32;
+    color: white;
+    border: 1px solid red;
+    border-radius: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.converter__form fieldset {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.converter__currency {
+    width: 100px;
+}

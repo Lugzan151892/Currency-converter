@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+</head>
+<body class="body">
+    <main class="main">
+        <header class="header">
+            <h1 class="header__title">Currency Converter</h1>
+            <p class="header__description">Используйте форму ниже для конвертации</p>
+            <p class="header__second">Или <a href="#" class="header__link">нажмите здесь</a> чтобы открыть весь список</p>
+        </header>
+        <div class="content">
+            <section class="currency">
+                <p class="currency__default">Ваша текущая валюта: RUB</p>
+                <form action="" class="currency__form">
+                    <p class="currency__label">Изменить:</p>
+                    <fieldset>
+                        <select name="currency" id="" class="currency__select">
+                            <option value="">USD</option>
+                            <option value="">EUR</option>
+                            <option value="">RUB</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                        <button class="currency__submit" type="submit">Save</button>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="converter">
+                <h2 class="converter__title">Введите сумму и выберите валюты конвертации:</h2>
+                <form action="" class="converter__form">
+                    <fieldset>
+                        <input type="number" class="converter__value">
+                        <label for="" class="converter__label">Конвертируемая валюта:
+                            <select name="" id="" class="converter__currency">
+                                <option class="converter__option" value="">USD</option>
+                                <option class="converter__option" value="">EUR</option>
+                                <option class="converter__option" value="">RUB</option>
+                                <option class="converter__option" value=""></option>
+                                <option class="converter__option" value=""></option>
+                            </select>
+                        </label>
+                        <img src="" alt="" class="converter__icon">
+                        <label for="" class="converter__label">Валюта конвертации:
+                            <select name="" id="" class="converter__currency">
+                                <option class="converter__option" value="">USD</option>
+                                <option class="converter__option" value="">EUR</option>
+                                <option class="converter__option" value="">RUB</option>
+                                <option class="converter__option" value=""></option>
+                                <option class="converter__option" value=""></option>
+                            </select>
+                        </label>
+                        <button class="converter__calculate">Рассчитать</button>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="list">
+                <h2 class="list__title">Курсы валют по отношению к <p class="list__currency">RUB</p></h2>
+                
+            </section>
+        </div>
+        <footer class="footer">
+
+        </footer>
+    </main>
+</body>
+</html>
