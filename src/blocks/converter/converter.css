@@ -1,7 +1,6 @@
 .converter {
-    margin: 0 auto;
+    margin: 0 auto 25px;
     width: 800px;
-    height: 200px;
     background-color: #1b1b32;
     color: white;
     border: 1px solid red;
@@ -9,15 +8,25 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .converter__form fieldset {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    border: none;
 }
 
 .converter__currency {
     width: 100px;
+    margin-top: 10px;
+}
+
+.converter__value {
+    border-radius: 10px;
+}
+
+.converter__calculate {
+    border-radius: 10px;
 }

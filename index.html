@@ -15,7 +15,7 @@
         </header>
         <div class="content">
             <section class="currency">
-                <p class="currency__default">Ваша текущая валюта: RUB</p>
+                <p class="currency__default">Ваша текущая валюта: <span class="currency__currency">RUB</span></p>
                 <form action="" class="currency__form">
                     <p class="currency__label">Изменить:</p>
                     <fieldset>
@@ -34,33 +34,34 @@
                 <h2 class="converter__title">Введите сумму и выберите валюты конвертации:</h2>
                 <form action="" class="converter__form">
                     <fieldset>
-                        <input type="number" class="converter__value">
+                        <input type="number" class="converter__value" value="0">
                         <label for="" class="converter__label">Конвертируемая валюта:
-                            <select name="" id="" class="converter__currency">
-                                <option class="converter__option" value="">USD</option>
-                                <option class="converter__option" value="">EUR</option>
-                                <option class="converter__option" value="">RUB</option>
-                                <option class="converter__option" value=""></option>
-                                <option class="converter__option" value=""></option>
+                            <select name="" id="value-hualue" class="converter__currency">
+                                <option class="converter__option" id="default-value" value=""></option>
+                                <template id="converter-template" class="converter__template">
+                                    <option class="converter__option" value=""></option>
+                                </template>
                             </select>
                         </label>
                         <img src="" alt="" class="converter__icon">
                         <label for="" class="converter__label">Валюта конвертации:
-                            <select name="" id="" class="converter__currency">
-                                <option class="converter__option" value="">USD</option>
-                                <option class="converter__option" value="">EUR</option>
-                                <option class="converter__option" value="">RUB</option>
-                                <option class="converter__option" value=""></option>
+                            <select name="" id="value-hualue2" class="converter__currency">
                                 <option class="converter__option" value=""></option>
                             </select>
                         </label>
                         <button class="converter__calculate">Рассчитать</button>
                     </fieldset>
                 </form>
+                <div class="converter__result">
+                    <h2 class="converter__result-title">Результат</h2>
+                    <p class="converter__res"><span>1</span> <span>USD</span> = <span>1</span> <span>EUR</span></p>
+                </div>
             </section>
             <section class="list">
                 <h2 class="list__title">Курсы валют по отношению к <p class="list__currency">RUB</p></h2>
-                
+                <div class="list__list">
+
+                </div>
             </section>
         </div>
         <footer class="footer">

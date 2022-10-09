@@ -2,7 +2,7 @@
   "name": "currency-converter",
   "version": "1.0.0",
   "description": "Currency converter based on JS and free API",
-  "main": "index.js",
+  "main": "./src/components/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve",
@@ -41,6 +41,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "core-js": "^3.25.5"
+    "axios": "^1.1.2",
+    "core-js": "^3.25.5",
+    "jshint": "^2.13.5"
   }
 }
