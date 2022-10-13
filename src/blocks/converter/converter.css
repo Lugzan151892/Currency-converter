@@ -19,12 +19,12 @@
 }
 
 .converter__currency {
-    width: 100px;
     margin-top: 10px;
 }
 
 .converter__value {
     border-radius: 10px;
+    margin-right: 10px;
 }
 
 .converter__calculate {

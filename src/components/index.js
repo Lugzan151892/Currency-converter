@@ -1,71 +1,77 @@
 import '../pages/index.css'
 import { Converter } from './Converter.js';
+import { Currency } from './Currency.js';
+import { Api } from './Api.js';
+import { List } from './List.js';
 const axios = require("axios").default;
 
-const options = {
-  method: 'GET',
-  url: 'https://api.currencyapi.com/v3/latest',
-  params: {apikey: 'HVhCEHI6e2AgJGyNO61HHXzHB78t3nItCtuydDo7'},
-  headers: {
-    authorization: 'HVhCEHI6e2AgJGyNO61HHXzHB78t3nItCtuydDo7',
-    'Content-Type': 'application/json'
-  }
-};
+const converterValue = document.querySelector('.converter__value');
+const firstValue = document.querySelector('#converter-first-value');
+const secondValue = document.querySelector('#converter-second-value');
 
-const data = {
-  "AED": {
-      "code": "AED",
-      "value": 3.67306
-  },
-  "AFN": {
-      "code": "AFN",
-      "value": 91.80254
-  },
-  "ALL": {
-      "code": "ALL",
-      "value": 108.22904
-  },
-  "AMD": {
-      "code": "AMD",
-      "value": 480.41659
-  },
-}
+const api = new Api();
 
-const form = document.querySelector('.converter__form');
+// Выбираем кнопку сабмита конвертера
+const converterForm = document.querySelector('.converter__form');
 
-const converter = new Converter('RUPIY', form);
-converter.initiationForm();
-
-for (let item in data) {
-  const optionElement = converter.generate(data[item]);
-  // console.log(data[item]);
-  document.querySelector('#value-hualue').append(optionElement);
-  // document.querySelector('#value-hualue2').append(optionElement);
-}
-
-for (let item in data) {
-  const optionElement = converter.generate(data[item]);
-  // console.log(data[item]);
-  // document.querySelector('#value-hualue').append(optionElement);
-  document.querySelector('#value-hualue2').append(optionElement);
-}
-
-console.log(document.querySelector('#value-hualue').value)
-
-const select = document.querySelector('#value-hualue');
-select.addEventListener('input', ()=> {
-  console.log(select.value)
+//Добавляем листенер на кнопку
+converterForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  let value = converterValue.value + '';
+  axios(api.getExchangeResult(value, firstValue.value, secondValue.value))
+  .then(res => {
+    console.log(res);
+  })
+  .catch(err => console.log(err));
 })
 
-// console.log(form);
-// form.querySelector('.converter__option').value = 10;
-// form.querySelector('.converter__option').textContent = 10;
+const currency = new Currency();
+const converter = new Converter(currency.getDefaultCurrencyText(), currency.getDefaultCurrencyValue());
+converter.initiationForm();
+
+const list = new List();
+
+axios.request(api.getListOfCurrencys()).then(function (response) {
+  for (let item in response.data.data) {
+    console.log(response.data.data);
+    console.log(item)
+    const listElement = list.generate(response.data.data[item]);
+    document.querySelector('.list__list').append(listElement);
+  }
+}).catch(function (error) {
+	console.error(error);
+});
+
+axios.request(api.getListOfPopularCurrencys()).then(function (response) {
+  for (let item in response.data.data) {
+    if (response.data.data[item].name != currency.getDefaultCurrencyText()) {
+      const optionElement = converter.generate(response.data.data[item]);
+      document.querySelector('#converter-first-value').append(optionElement);
+    } else {
+      console.log(`${response.data.data[item].name} - Its default user currency`);
+    }
+  }
+  for (let item in response.data.data) {
+    const optionElement = converter.generate(response.data.data[item]);
+    document.querySelector('#converter-second-value').append(optionElement);
+  }
+  for (let item in response.data.data) {
+    if (response.data.data[item].name != currency.getDefaultCurrencyText()) {
+      const optionElement = converter.generate(response.data.data[item]);
+      document.querySelector('#currency').append(optionElement);
+    } else {
+      console.log(`${response.data.data[item].name} - Its default user currency`);
+    }
+  }
+}).catch(function (error) {
+	console.error(error);
+});
+
+// const select = document.querySelector('#converter-first-value');
+// select.addEventListener('input', ()=> {
+//   console.log(select.value)
+// })
+
 
 
 console.log('hello')
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
