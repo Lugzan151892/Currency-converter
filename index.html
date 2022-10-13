@@ -15,16 +15,12 @@
         </header>
         <div class="content">
             <section class="currency">
-                <p class="currency__default">Ваша текущая валюта: <span class="currency__currency">RUB</span></p>
+                <p class="currency__default">Ваша текущая валюта: <span class="currency__currency" value="RUB">Russian Ruble</span></p>
                 <form action="" class="currency__form">
                     <p class="currency__label">Изменить:</p>
                     <fieldset>
-                        <select name="currency" id="" class="currency__select">
-                            <option value="">USD</option>
-                            <option value="">EUR</option>
-                            <option value="">RUB</option>
-                            <option value=""></option>
-                            <option value=""></option>
+                        <select name="currency" id="currency" class="currency__select">
+                            <option id="default-currency-value" value=""></option>
                         </select>
                         <button class="currency__submit" type="submit">Save</button>
                     </fieldset>
@@ -34,9 +30,9 @@
                 <h2 class="converter__title">Введите сумму и выберите валюты конвертации:</h2>
                 <form action="" class="converter__form">
                     <fieldset>
-                        <input type="number" class="converter__value" value="0">
-                        <label for="" class="converter__label">Конвертируемая валюта:
-                            <select name="" id="value-hualue" class="converter__currency">
+                        <input type="number" class="converter__value" value="">
+                        <label for="converter-first-value" class="converter__label">Конвертируемая валюта:
+                            <select name="converter-first-value" id="converter-first-value" class="converter__currency">
                                 <option class="converter__option" id="default-value" value=""></option>
                                 <template id="converter-template" class="converter__template">
                                     <option class="converter__option" value=""></option>
@@ -44,9 +40,9 @@
                             </select>
                         </label>
                         <img src="" alt="" class="converter__icon">
-                        <label for="" class="converter__label">Валюта конвертации:
-                            <select name="" id="value-hualue2" class="converter__currency">
-                                <option class="converter__option" value=""></option>
+                        <label for="converter-second-value" class="converter__label">Валюта конвертации:
+                            <select name="converter-second-value" id="converter-second-value" class="converter__currency">
+                                <option class="converter__option" value="">Выберите валюту</option>
                             </select>
                         </label>
                         <button class="converter__calculate">Рассчитать</button>
@@ -58,9 +54,34 @@
                 </div>
             </section>
             <section class="list">
-                <h2 class="list__title">Курсы валют по отношению к <p class="list__currency">RUB</p></h2>
+                <h2 class="list__title">Список доступных валют:<p class="list__default-currency"></p></h2>
                 <div class="list__list">
-
+                    <!-- <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div>
+                    <div class="list__currency">
+                        <p class="list__value">1.05</p><p class="list__name">United Arab Emirates Dirham</p>
+                    </div> -->
+                    <template id="list-template" class="list__template">
+                        <div class="list__currency">
+                            <p class="list__value"></p><p class="list__name"></p>
+                        </div>
+                    </template>
                 </div>
             </section>
         </div>
